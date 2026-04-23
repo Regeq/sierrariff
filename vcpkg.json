@@ -1,0 +1,9 @@
+{
+  "name": "sierrariff",
+  "version": "0.1.0",
+  "dependencies": [
+    "taglib",
+    "ftxui",
+    "cli11"
+  ]
+}
