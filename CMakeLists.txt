@@ -14,7 +14,7 @@ find_package(TagLib REQUIRED)
 find_package(ftxui REQUIRED)
 find_package(CLI11 REQUIRED)
 
-target_link_libraries(mplayer PRIVATE
+target_link_libraries(sierariff PRIVATE
         TagLib::TagLib
         ftxui::screen
         ftxui::dom
