@@ -1,0 +1,75 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 25,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "windows-debug",
+      "displayName": "Windows Debug (vcpkg)",
+      "description": "Debug build using vcpkg toolchain",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/debug",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_BUILD_TYPE": "Debug",
+        "SR_ENABLE_VORBIS": "ON",
+        "SR_ENABLE_OPUS": "ON",
+        "SR_ENABLE_AAC": "ON",
+        "SR_ENABLE_TRACKER": "ON",
+        "SR_ENABLE_FFMPEG": "OFF"
+      }
+    },
+    {
+      "name": "windows-release",
+      "displayName": "Windows Release (vcpkg)",
+      "description": "Optimised release build using vcpkg toolchain",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_BUILD_TYPE": "Release",
+        "SR_ENABLE_VORBIS": "ON",
+        "SR_ENABLE_OPUS": "ON",
+        "SR_ENABLE_AAC": "ON",
+        "SR_ENABLE_TRACKER": "ON",
+        "SR_ENABLE_FFMPEG": "OFF"
+      }
+    },
+    {
+      "name": "windows-release-ffmpeg",
+      "displayName": "Windows Release + FFmpeg (vcpkg)",
+      "description": "Release build with FFmpeg enabled for WMA and extra format support",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/release-ffmpeg",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "CMAKE_BUILD_TYPE": "Release",
+        "SR_ENABLE_VORBIS": "ON",
+        "SR_ENABLE_OPUS": "ON",
+        "SR_ENABLE_AAC": "ON",
+        "SR_ENABLE_TRACKER": "ON",
+        "SR_ENABLE_FFMPEG": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "windows-debug",
+      "displayName": "Build Debug",
+      "configurePreset": "windows-debug"
+    },
+    {
+      "name": "windows-release",
+      "displayName": "Build Release",
+      "configurePreset": "windows-release"
+    },
+    {
+      "name": "windows-release-ffmpeg",
+      "displayName": "Build Release + FFmpeg",
+      "configurePreset": "windows-release-ffmpeg"
+    }
+  ]
+}
