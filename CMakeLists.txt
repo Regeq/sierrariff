@@ -1,23 +1,26 @@
-cmake_minimum_required(VERSION 4.1)
-project(sierrariff)
+cmake_minimum_required(VERSION 3.20)
+project(SierraRiff
+        VERSION 0.0.1
+        DESCRIPTION "A minimal, modular music player"
+        LANGUAGES C CXX
+)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(src)
+add_executable(sr
+        src/main.cpp
+        src/player/Player.cpp
+        src/queue/Queue.cpp
+        src/tags/TagEditor.cpp
+        src/tui/TUI.cpp
+        src/tui/TUI.cpp
+        src/tags/TagEditor.cpp
+        src/queue/Queue.cpp
+        src/player/Player.cpp
+        src/main.cpp
+)
 
-add_executable(sierrariff
-        src/Player.cpp
-        src/Player.h)
-
-# vcpkg packages
-find_package(TagLib REQUIRED)
-find_package(ftxui REQUIRED)
-find_package(CLI11 REQUIRED)
-
-target_link_libraries(sierariff PRIVATE
-        TagLib::TagLib
-        ftxui::screen
-        ftxui::dom
-        ftxui::component
-        CLI11::CLI11
+target_include_directories(sr PRIVATE
+        include/
+        src/
 )
