@@ -1,7 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include <miniaudio>
+#include "vendor/miniaudio.h"
 
 class Player {
+
 };

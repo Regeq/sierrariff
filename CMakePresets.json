@@ -1,8 +1,9 @@
 {
+  "__comment__": "SierraRiff — CMakePresets.json | Authored by hand, do not overwrite. Add new presets here as platforms are added.",
   "version": 3,
   "cmakeMinimumRequired": {
     "major": 3,
-    "minor": 25,
+    "minor": 20,
     "patch": 0
   },
   "configurePresets": [
@@ -14,12 +15,7 @@
       "binaryDir": "${sourceDir}/build/debug",
       "cacheVariables": {
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-        "CMAKE_BUILD_TYPE": "Debug",
-        "SR_ENABLE_VORBIS": "ON",
-        "SR_ENABLE_OPUS": "ON",
-        "SR_ENABLE_AAC": "ON",
-        "SR_ENABLE_TRACKER": "ON",
-        "SR_ENABLE_FFMPEG": "OFF"
+        "CMAKE_BUILD_TYPE": "Debug"
       }
     },
     {
@@ -30,28 +26,7 @@
       "binaryDir": "${sourceDir}/build/release",
       "cacheVariables": {
         "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-        "CMAKE_BUILD_TYPE": "Release",
-        "SR_ENABLE_VORBIS": "ON",
-        "SR_ENABLE_OPUS": "ON",
-        "SR_ENABLE_AAC": "ON",
-        "SR_ENABLE_TRACKER": "ON",
-        "SR_ENABLE_FFMPEG": "OFF"
-      }
-    },
-    {
-      "name": "windows-release-ffmpeg",
-      "displayName": "Windows Release + FFmpeg (vcpkg)",
-      "description": "Release build with FFmpeg enabled for WMA and extra format support",
-      "generator": "Ninja",
-      "binaryDir": "${sourceDir}/build/release-ffmpeg",
-      "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
-        "CMAKE_BUILD_TYPE": "Release",
-        "SR_ENABLE_VORBIS": "ON",
-        "SR_ENABLE_OPUS": "ON",
-        "SR_ENABLE_AAC": "ON",
-        "SR_ENABLE_TRACKER": "ON",
-        "SR_ENABLE_FFMPEG": "ON"
+        "CMAKE_BUILD_TYPE": "Release"
       }
     }
   ],
@@ -65,11 +40,6 @@
       "name": "windows-release",
       "displayName": "Build Release",
       "configurePreset": "windows-release"
-    },
-    {
-      "name": "windows-release-ffmpeg",
-      "displayName": "Build Release + FFmpeg",
-      "configurePreset": "windows-release-ffmpeg"
     }
   ]
 }
