@@ -1,9 +1,14 @@
 {
+  "__comment__": "SierraRiff — vcpkg.json | Low level API and custom decoders come in v2.0.0",
   "name": "sierrariff",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "dependencies": [
-    "taglib",
     "ftxui",
-    "cli11"
+    "cli11",
+    "taglib",
+    "curl",
+    "miniz",
+    "sdl3",
+    "imgui[sdl3-binding,sdl3-renderer-binding]"
   ]
 }
